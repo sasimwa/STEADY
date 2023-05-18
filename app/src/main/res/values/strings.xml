@@ -1,0 +1,13 @@
+<resources>
+
+    <string name="app_name">Simple-listview-app-Sandra</string>
+
+    <string-array name="services">
+
+        <item>SOCIAL MEDIA</item>
+        <item>DRUGS</item>
+        <item>FOOD</item>
+
+
+    </string-array>
+</resources>

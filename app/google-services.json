@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "886630715178",
+    "project_id": "steady-36ef9",
+    "storage_bucket": "steady-36ef9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:886630715178:android:7f507c4f73f3381af65853",
+        "android_client_info": {
+          "package_name": "com.example.steady"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "886630715178-qhnt6fpdn0h1jg20a8nmak3ebcgsvo2u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPDafPRxNf8tGtFLMteKZ_dbQOORio8GM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "886630715178-qhnt6fpdn0h1jg20a8nmak3ebcgsvo2u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

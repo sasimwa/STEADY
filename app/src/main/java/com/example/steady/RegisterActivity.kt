@@ -1,0 +1,80 @@
+package com.example.steady
+
+import android.content.ContentValues.TAG
+import android.content.Intent
+import android.graphics.Color
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.util.Log
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+import android.graphics.drawable.GradientDrawable
+import com.google.firebase.auth.ktx.actionCodeSettings
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+
+class RegisterActivity : AppCompatActivity() {
+    lateinit var reg_email:EditText
+    lateinit var reg_password:EditText
+    lateinit var reg_btn:Button
+    lateinit var auth: FirebaseAuth
+    lateinit var edtName:EditText
+    lateinit var edtGender:EditText
+    lateinit var edtAge:EditText
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_register)
+
+        edtName = findViewById(R.id.edtname)
+        edtGender = findViewById(R.id.edtgender)
+        edtAge = findViewById(R.id.edtage)
+        reg_email = findViewById(R.id.edtemail)
+        reg_password = findViewById(R.id.edtpassword)
+        reg_btn = findViewById(R.id.btnregister)
+        auth = FirebaseAuth.getInstance()
+
+        reg_btn.setOnClickListener{
+            var gender = edtGender.text.toString().trim()
+            var age = edtAge.text.toString().trim()
+            var name = edtName.text.toString().trim()
+            var email = reg_email.text.toString().trim()
+            var password = reg_password.text.toString().trim()
+
+            //validate info
+            if (email.isEmpty() || password.isEmpty()){
+                Toast.makeText(this, "Cannot submit an empty field", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this) {
+                    if (it.isSuccessful){
+                        Toast.makeText(this, "User created successfully", Toast.LENGTH_SHORT).show()
+
+                        //navigate to login
+                        var gotlologin = Intent(this, LoginActivity::class.java)
+                        startActivity(gotlologin)
+                        finish()
+
+                    } else{
+                        Toast.makeText(this, "Failed to create the account", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
